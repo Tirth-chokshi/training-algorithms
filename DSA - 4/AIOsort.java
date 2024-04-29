@@ -28,7 +28,7 @@ public class AIOsort {
             arr[j + 1] = key;
         }
     }
-    static void insertion(@NotNull int arr[]){
+    static void insertion( int arr[]){
         for (int i= 0; i< arr.length-1; i++){
             for (int j = i+1 ; j>0 ; j--){
                 if(arr[j] < arr[j-1]){
@@ -69,10 +69,8 @@ public class AIOsort {
         }
     }
     static void bubble(int arr[]){
-        boolean swapped;
         for(int i = 0; i< arr.length; i++){
             //to place the largest element in the last position on of array
-            swapped = false;
             for(int j =1; j< arr.length - i; j++){
                 //swap if item is smaller than the previous one
                 if (arr[j] < arr[j-1]){
@@ -80,7 +78,6 @@ public class AIOsort {
                     int temp = arr[j];
                     arr[j] = arr[j-1];
                     arr[j-1] = temp;
-                    swapped = true;
                 }
             }
         }
