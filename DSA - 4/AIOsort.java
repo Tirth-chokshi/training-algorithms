@@ -1,7 +1,5 @@
 package SortingAlogrithms;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.util.Arrays;
 
 public class AIOsort {
@@ -10,7 +8,8 @@ public class AIOsort {
         int num2[] = {5,2,3,0,1};
 //        bubble(num);
 //        selectionMin(num);
-        insertion(num2);
+        //insertion(num2);
+		mergSort(num2);
         System.out.println(Arrays.toString(num2));
     }
     static void insertionSort(int arr[])
@@ -82,4 +81,57 @@ public class AIOsort {
             }
         }
     }
+	
+	
+	static void mergSort(int arr[]){
+		int len = arr.length;
+		if(len <=1){return ;}
+		int middle = len/2;
+		int [] leftArr = new int[middle];
+		int [] rightArr = new int[len - middle];
+		
+		int i = 0; //left
+		int j = 0; //right
+		
+		for(; i< len; i++){
+			if(i<middle){
+				leftArr[i] = arr[i];
+			}
+			else{
+				rightArr[j] = arr[i];
+				j++;
+			}
+		}
+		mergSort(leftArr);
+		mergSort(rightArr);
+		merge(leftArr,rightArr,arr);
+	}
+	static void merge(int [] leftArr, int [] rightArr , int []arr){
+		int leftSize = arr.length/2;
+		int rightSize = arr.length - leftSize;
+		int i = 0 , l = 0 , r = 0;
+		
+		while(l<leftSize && r<rightSize){
+			if(leftArr[l] < rightArr[r]){
+				arr[i] = leftArr[l];
+				i++;
+				l++;
+			}
+			else{
+				arr[i] = rightArr[r];
+				i++;
+				r++;
+			}
+		}
+		while(l<leftSize){
+			arr[i] = leftArr[l];
+			i++;
+			l++;
+		}
+		while(r<rightSize){
+			arr[i] = rightArr[r];
+			i++;
+			r++;
+		}
+	}
 }
