@@ -10,8 +10,8 @@ public class AIOsort {
 //        selectionMin(num);
         //insertion(num2);
 		//mergSort(num2);
-		//quicksort(num,0,num.length-1);
-        System.out.println(Arrays.toString(num2));
+		quicksort(num,0,num.length-1);
+        System.out.println(Arrays.toString(num));
     }
     static void insertionSort(int arr[])
     {
@@ -103,6 +103,8 @@ public class AIOsort {
 				int temp = arr[s];
 				arr[s] = arr[e];
 				arr[e] = temp;
+				s++;
+				e--;
 			}
 		}
 		
