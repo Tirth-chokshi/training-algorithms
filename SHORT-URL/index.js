@@ -21,7 +21,7 @@ app.get('/:shortID', async (req, res) => {
     res.redirect(entry.redirectURL)
 })
 
-mongoose.connect('mongodb+srv://sample:sample@sample.hztcuqn.mongodb.net/?retryWrites=true&w=majority&appName=sample')
+mongoose.connect()
     .then(() => {
         console.log('Database connected successfully');
         app.listen(PORT, () => {
